@@ -1,0 +1,28 @@
+footer {
+  background-color: var(--color-dark-primary);
+  padding: var(--space-7);
+}
+
+.footer-content {
+  text-align: center;
+  color: white;
+}
+
+.footer-logo {
+  font-size: var(--font-size-heading);
+  font-family: var(--font-family-title-heading);
+  font-weight: bold;
+  margin-bottom: var(--space-5);
+}
+
+.footer-content p:nth-child(2) {
+  width: 100%;
+  padding-bottom: var(--space-7);
+  border-bottom: 1px solid #dddddd3d;
+}
+
+.copywrite {
+  margin-top: var(--space-6);
+  font-size: var(--font-size-sm);
+  color: #ddddddda;
+}

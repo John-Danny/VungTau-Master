@@ -1,0 +1,219 @@
+header {
+  width: 100%;
+  height: 80px;
+  padding: var(--space-5) var(--space-6);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content-logo {
+  font-family: var(--font-family-title-heading);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+
+  background-image: var(--text-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer;
+}
+
+.header-content label {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.header-content .fa-bars,
+.fa-xmark {
+  font-size: 28px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.header-content .fa-bars {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.header-content .fa-xmark {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+.header-content .overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: #dddddd2f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: translateX(100%);
+}
+
+.header-content-navigation {
+  width: 50%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: -2px 0 40px #ddd;
+  transform: translateX(100%);
+}
+
+.header-content-navigation ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-7);
+  z-index: 99;
+}
+
+.header-content-navigation ul li a {
+  font-size: var(--font-size-sub-title);
+  color: var(--text-lightgrey);
+  font-weight: bold;
+}
+
+.header-content-navigation ul li .active {
+  color: var(--text-main);
+}
+
+#navigation-slidebar-input:checked ~ .overlay {
+  transform: translateX(0%);
+}
+
+#navigation-slidebar-input:checked ~ .overlay .header-content-navigation {
+  display: inline-block;
+  transform: translateX(0%);
+  transition: all 0.3s ease-out;
+}
+
+#navigation-slidebar-input:checked + label .fa-bars {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+#navigation-slidebar-input:checked + label .fa-xmark {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+#navigation-slidebar-input:checked ~ .overlay .header-content-navigation ul li {
+  animation-name: slidebarLi;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+s .header-content-navigation ul li:first-child {
+  animation-delay: 0s;
+}
+
+.header-content-navigation ul li:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.header-content-navigation ul li:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.header-content-navigation ul li:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.header-content-navigation ul li:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+@keyframes slidebarLi {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===================== Tablet + Laptop ================== */
+@media only screen and (max-width: 47.9375em) {
+  html:has(#navigation-slidebar-input:checked) {
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 47.9375em) {
+  .header-content-logo {
+    width: 20%;
+  }
+  .header-content label {
+    display: none;
+  }
+
+  .header-content .overlay {
+    background-color: unset;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    position: unset;
+    transform: translate(0);
+  }
+
+  .header-content-navigation {
+    background-color: unset;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    display: inline-block;
+    position: unset;
+    width: auto;
+    height: auto;
+    transform: translate(0);
+    box-shadow: none;
+    transition: none;
+    animation: nav 0.3s ease-out;
+  }
+
+  @keyframes nav {
+    from {
+      transform: scaleX(1.2);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .header-content-navigation ul {
+    flex-direction: row;
+    gap: 2em;
+    margin-right: 40px;
+  }
+
+  .header-content-navigation ul li a {
+    font-size: var(--font-size-base);
+  }
+}
