@@ -5,6 +5,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 10;
+  overflow: hidden;
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -64,6 +65,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   z-index: 10;
   transform: translateX(100%);
 }
@@ -74,6 +76,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   z-index: 99;
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
@@ -107,7 +110,7 @@ header {
   transform: translateX(0%);
 }
 
-#navigation-slidebar-input:checked ~ .overlay .header-content-navigation {
+#navigation-slidebar-input:checked ~ .header-content-navigation {
   display: inline-block;
   transform: translateX(0%);
   transition: all 0.3s ease-out;
@@ -123,7 +126,7 @@ header {
   transform: rotate(0deg) scale(1);
 }
 
-#navigation-slidebar-input:checked ~ .overlay .header-content-navigation ul li {
+#navigation-slidebar-input:checked ~ .header-content-navigation ul li {
   animation-name: slidebarLi;
   animation-duration: 0.3s;
   animation-timing-function: ease-out;
@@ -176,12 +179,7 @@ s .header-content-navigation ul li:first-child {
   }
 
   .header-content .overlay {
-    background-color: unset;
-    display: inline-block;
-    width: auto;
-    height: auto;
-    position: unset;
-    transform: translate(0);
+    display: none;
   }
 
   .header-content-navigation {
