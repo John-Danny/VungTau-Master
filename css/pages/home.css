@@ -59,6 +59,7 @@
 }
 
 .video-content h2 {
+  text-align: center;
   font-size: var(--font-size-heading);
   font-family: var(--font-family-title-heading);
   padding-bottom: 24px;
