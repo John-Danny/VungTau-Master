@@ -106,6 +106,10 @@ header {
   color: var(--text-main);
 }
 
+header:has(#navigation-slidebar-input:checked) {
+  overflow: visible;
+}
+
 #navigation-slidebar-input:checked ~ .overlay {
   transform: translateX(0%);
 }
