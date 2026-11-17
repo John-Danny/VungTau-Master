@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..800;1,400..800&display=swap");
+
 @import "tailwindcss";
 
 @theme {
@@ -10,8 +12,8 @@
 
   /* 2. Text */
   /* 2.1 Font family */
-  --font-family-title-heading: "Playfair Display", serif;
-  --font-family-base: "Outfit", sans-serif;
+  --font-title-heading: "Playfair Display", serif;
+  --font-base: "Outfit", sans-serif;
 
   /* 2.2 Font size */
   --text-banner-heading: clamp(40px, 3vw + 16px, 64px);
@@ -27,16 +29,22 @@
 
   /* 4. Transition */
   --ease-bounce: cubic-bezier(0.4, 1.3, 1.1, 0, 6);
+
+  /* 5. Radial Transparent */
+  --background-image-radial-mint-blue:
+    radial-gradient(circle at top right, #caf0f8 0%, transparent 50%),
+    radial-gradient(circle at bottom left, #e0f2fe 0%, transparent 50%);
 }
 
 @layer base {
   h1,
   h2,
-  h3 {
-    @apply font-title-heading text-dark-primary;
+  h3,
+  h4 {
+    @apply font-title-heading text-dark-primary font-bold;
   }
 
   body {
-    @apply font-base text-base;
+    @apply box-border m-0 p-0 font-base text-base;
   }
 }
