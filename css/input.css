@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  /* 1. Color semantics */
+  --color-primary: #0077b6;
+  --color-dark-primary: #023e8a;
+  --color-secondary: #00b4d8;
+  --color-light-grey: #4a5568;
+  --color-bg-light: #f8fbff;
+
+  /* 2. Text */
+  /* 2.1 Font family */
+  --font-family-title-heading: "Playfair Display", serif;
+  --font-family-base: "Outfit", sans-serif;
+
+  /* 2.2 Font size */
+  --text-banner-heading: clamp(40px, 3vw + 16px, 64px);
+  --text-heading: 40px;
+  --text-lg: 28px;
+  --text-card-title: 24px;
+  --text-subtitle: 20px;
+  --text-base: 16px;
+  --text-sm: 14.4px;
+
+  /* 3. Shadow */
+  --shadow-lg: 0px 20px 25p-5px #333;
+
+  /* 4. Transition */
+  --ease-bounce: cubic-bezier(0.4, 1.3, 1.1, 0, 6);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-title-heading text-dark-primary;
+  }
+
+  body {
+    @apply font-base text-base;
+  }
+}
